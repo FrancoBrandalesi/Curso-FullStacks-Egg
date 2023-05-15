@@ -2,33 +2,27 @@ package Main;
 
 import Entidades.EstudiantesA;
 import Servicios.EstudiantesAServicio;
+import java.util.Arrays;
 
 public class mainEstudiantesA {
 
     public static void main(String[] args) {
-        EstudiantesA[] notas = new EstudiantesA[8];
-        String[] arregloSuperior = new String[8];
-        double suma = 0;
-        double promedio;
         EstudiantesAServicio es = new EstudiantesAServicio();
+        EstudiantesA[] alumnos = new EstudiantesA[8];
+        EstudiantesA estudiante = new EstudiantesA();
 
-        for (int i = 0; i < 8; i++) {
-            notas[i] = es.crearEstudiante();
-            suma += notas[i].getNota();
+        for (int i = 0; i < alumnos.length; i++) {
+            alumnos[i] = es.crearEstudiante();
 
         }
-        promedio = suma / 8;
-        System.out.println("El promedio del curso es: " + promedio);
-        int j = 0;
-        System.out.println("Los alumnos con nota mayor al promedio son:");
-        for (int i = 0; i < 8; i++) {
-            if (notas[i].getNota() > promedio) {
-                arregloSuperior[j] = notas[i].getAlumno();
-                System.out.println(arregloSuperior[j]);
-                j++;
-                
-            }
-        }
+       es.promedio(alumnos);
+        System.out.println(alumnos[0].getAlumno() + "  " + alumnos[0].getNota());
+        System.out.println(alumnos[1].getAlumno() + "  " + alumnos[1].getNota());
+        System.out.println(alumnos[2].getAlumno() + "  " + alumnos[2].getNota());
+        System.out.println(alumnos[3].getAlumno() + "  " + alumnos[3].getNota());
+        System.out.println(alumnos[4].getAlumno() + "  " + alumnos[4].getNota());
+        System.out.println(alumnos[5].getAlumno() + "  " + alumnos[5].getNota());
+        System.out.println(alumnos[6].getAlumno() + "  " + alumnos[6].getNota());
+        System.out.println(alumnos[7].getAlumno() + "  " + alumnos[7].getNota());
     }
-
 }
